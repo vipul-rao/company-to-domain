@@ -59,13 +59,12 @@ def upload():
     print(res)
     df['Domain'] = res
     print(df['Domain'])
-    df.to_csv("/home/vipul/PycharmProjects/csvbrain/venv/src/new.csv",index = False)
-    downloadpath = "/home/vipul/PycharmProjects/csvbrain/venv/src/new.csv"
+    df.to_csv("new.csv", index=False)
+    downloadpath = "new.csv"
+    os.remove(os.path.abspath(new_path) )
+
     return render_template("complete.html", name=downloadpath)
 
-
-
 if __name__ == "__main__":
-    app.run(port=4559, debug=True)
-
-
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
