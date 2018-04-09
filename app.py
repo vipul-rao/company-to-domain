@@ -17,8 +17,7 @@ def index():
 @app.route("/return-file/")
 def return_file():
 
-    return send_file('/home/vipul/PycharmProjects/csvbrain/venv/src/new.csv', as_attachment=True)
-
+    return send_file('new.csv', as_attachment=True)
 
 @app.route("/upload", methods=['POST'])
 def upload():
