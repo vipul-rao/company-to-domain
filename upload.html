@@ -6,13 +6,14 @@
 </head>
 <body>
 
-<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-    <p> Upload a file with "Company" as header followed by company names</p>
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data"> 
+    <h1>UPLOAD</h1>
+    <p> Upload a file with "Company" as header followed by company names </p>
     <strong>Files:</strong><br>
     <input id="file-picker" type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
 
     <div id="msg"></div>
-    <input type="submit" value="Upload!" id="upload-button">
+    <input type="submit" value="Upload!" id="upload-button" onclick="myfunction()">
 </form>
 </body>
 <script>
@@ -32,6 +33,12 @@
                 document.getElementById("file-picker").value ="";
             }
         }
-    } );
+    }
+    );
+</script>
+<script>
+function myfunction() {
+    document.getElementById("file-picker").required = true;
+}
 </script>
 </html>
